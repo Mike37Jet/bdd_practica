@@ -1,7 +1,7 @@
 # logica/main.py
 from logica.objetivo_carrera import ObjetivoCarrera
 from logica.asignatura import Asignatura
-from logica.historial_de_desempeño import HistorialDeDesempeño
+from logica.historial_de_desempeno import HistorialDeDesempeño
 from logica.estudiante import Estudiante
 from logica.sistema import Sistema
 

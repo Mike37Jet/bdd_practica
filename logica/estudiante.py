@@ -2,7 +2,7 @@
 from typing import Dict, List
 from logica.objetivo_carrera import ObjetivoCarrera
 from logica.asignatura import Asignatura
-from logica.historial_de_desempeño import HistorialDeDesempeño
+from logica.historial_de_desempeno import HistorialDeDesempeño
 
 class Estudiante:
     def __init__(self, id: str, nombre: str, asignaturas: List[Asignatura] = None, historial: HistorialDeDesempeño = None, semestreActual: int = 1):
