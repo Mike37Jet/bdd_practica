@@ -9,19 +9,17 @@ Característica: Seguimiento de autoevaluación de progreso profesional
   Antecedentes:
     Dado que el estudiante tiene registrado al menos un historial de perfil estudiantil
 
-  Esquema del escenario: Seguimiento sin falencias
+  Escenario: Seguimiento sin falencias
     Y el umbral de aceptación mínimo es de 70
-    Y la carrera de sistemas tiene los siguientes objetivos "<VALUE>", "<VALUE>"
+    Y la carrera "Sistemas" tiene definidos los siguientes objetivos de aprendizaje:
+        | Objetivo de carrera                                                                                            |
+        | Verificación, validación y aseguramiento de la calidad del Software                                            |
+        | Administración de proyectos de Software                                                                        |
+        | Investigación aplicada en proyectos de conceptualización, desarrollo, innovación y transferencia de Software   |
+        | Ingeniería de Software para el desarrollo de Sistemas de Información y Sistemas Inteligentes                   |
+        | Emprendimiento de empresas de investigación, innovación, desarrollo y comercialización de Software             |
     Cuando consulte el progreso del historial
     Entonces mostrará un porcentaje de progreso por cada objetivo
-    Ejemplos:
-      | Objetivo   | Definición                                                                                                   |
-      | objetivo 1 | Verificación, validación y aseguramiento de la calidad del Software                                          |
-      | objetivo 1 | Administración de proyectos de Software                                                                      |
-      | objetivo 1 | Investigación aplicada en proyectos de conceptualización, desarrollo, innovación y transferencia de Software |
-      | objetivo 1 | Ingeniería de Software para el desarrollo de Sistemas de Información y Sistemas Inteligentes                 |
-      | objetivo 1 | Emprendimiento de empresas de investigación, innovación, desarrollo y comercialización de Software           |
-    #feature_seguimineto_001
     Y se mostrará la media de progreso de estudiantes
 
     #Tarea - Leer documentación Cucumber
