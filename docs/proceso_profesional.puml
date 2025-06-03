@@ -1,0 +1,54 @@
+@startuml
+
+
+' Paquete del dominio
+package "lógica" {
+
+  enum ObjetivoCarrera {
+    CALIDAD
+    PROYECTOS
+    INVESTIGACION
+    SISTEMAS
+    EMPRENDIMIENTO
+  }
+
+  class Asignatura {
+    - nombre: str
+    - contribuciones: Dict<ObjetivoCarrera, int>
+    +contribuye_a(obj: ObjetivoCarrera): bool
+    +valor_para(obj: ObjetivoCarrera): int
+    +establecer_valor_para(obj: ObjetivoCarrera, valor: int): void
+  }
+
+  class Estudiante {
+    - nombre: str
+    - asignaturas: List<Asignatura>
+    - historial: HistorialDeDesempeño
+    - semestreActual : int
+    +calcular_progreso_actual(objetivos: List<ObjetivoCarrera>): Dict<ObjetivoCarrera, float>
+  }
+
+  class HistorialDeDesempeño {
+    - registros: Dict<int, Dict<ObjetivoCarrera, float>>  ' semestre -> {objetivo -> valor}
+    +registrar_progreso(semestre: int, progreso: Dict<ObjetivoCarrera, float>): void
+    +obtener_progreso(semestre: int): Dict<ObjetivoCarrera, float>
+    +calcular_evolucion(obj: ObjetivoCarrera): List<float>
+  }
+
+  class Sistema {
+    - objetivos: List<ObjetivoCarrera>
+    - umbral: int
+    +ejecutar_seguimiento(estudiante: Estudiante): Tuple<Dict<ObjetivoCarrera, float>, float, List<str>>
+    +calcular_media(semestre: int): float
+    +generar_recomendaciones(progresos: Dict<ObjetivoCarrera, float>): List<str>
+  }
+}
+
+Estudiante --> "1...*" Asignatura
+Estudiante --> "1" HistorialDeDesempeño
+Asignatura  -->  ObjetivoCarrera
+Sistema *-- "1...*" Estudiante
+Sistema --> ObjetivoCarrera
+
+
+@enduml
